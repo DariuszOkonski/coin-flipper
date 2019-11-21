@@ -25,21 +25,13 @@ class CoinContainer extends Component {
     console.log(newCoin);
 
     this.setState(prevState => {
-      let newState = {
-        ...prevState,
+      return {
         currCoin: newCoin,
         nFlips: prevState.nFlips + 1,
+        nHeads: prevState.nHeads + (newCoin.side === 'heads' ? 1 : 0),
+        nTails: prevState.nTails + (newCoin.side === 'tails' ? 1 : 0),
       }
-
-      if (newCoin.side === 'heads') {
-        newState.nHeads += 1;
-      } else {
-        newState.nTails += 1;
-      }
-
-      return newState;
-
-    })
+    });
   }
   handleClick(e) {
     this.flipCoin();
