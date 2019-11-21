@@ -1,2 +1,0 @@
-(this["webpackJsonp04-coin-flipper"]=this["webpackJsonp04-coin-flipper"]||[]).push([[0],{3:function(e,n,t){e.exports=t(9)},8:function(e,n,t){},9:function(e,n,t){"use strict";t.r(n);var r=t(0),c=t.n(r),a=t(2),l=t.n(a);t(8);var o=function(){return c.a.createElement("div",{className:"App"},c.a.createElement("h1",null,"Hello"))};l.a.render(c.a.createElement(o,null),document.getElementById("root"))}},[[3,1,2]]]);
-//# sourceMappingURL=main.8fc3878b.chunk.js.map
