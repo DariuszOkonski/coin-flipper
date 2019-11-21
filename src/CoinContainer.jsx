@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { choice } from './helpers';
 
 class CoinContainer extends Component {
   static defaultProps = {
@@ -16,12 +17,39 @@ class CoinContainer extends Component {
       nHeads: 0,
       nTails: 0,
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  flipCoin() {
+    const newCoin = choice(this.props.coins);
+    console.log(newCoin);
+
+    this.setState(prevState => {
+      let newState = {
+        ...prevState,
+        currCoin: newCoin,
+        nFlips: prevState.nFlips + 1,
+      }
+
+      if (newCoin.side === 'heads') {
+        newState.nHeads += 1;
+      } else {
+        newState.nTails += 1;
+      }
+
+      return newState;
+
+    })
+  }
+  handleClick(e) {
+    this.flipCoin();
   }
 
   render() {
     return (
       <div className="CoinContainer">
         <h2>Let's Flip A Coin!</h2>
+        <button onClick={this.handleClick}>Flip Me!</button>
         <p>
           Out of {this.state.nFlips} flips, there have been {this.state.nHeads} heads and {this.state.nTails} tails.
         </p>
